@@ -1,10 +1,14 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fruithero/detailsPage.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,6 +24,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,12 +96,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     padding: EdgeInsets.only(top: 45.0),
                     child: Container(
                         height: MediaQuery.of(context).size.height - 300.0,
-                        child: ListView(children: [
-                          _buildFoodItem('assets/plate1.png', 'Salmon bowl', '\$24.00'),
-                          _buildFoodItem('assets/plate2.png', 'Spring bowl', '\$22.00'),
-                          _buildFoodItem('assets/plate6.png', 'Avocado bowl', '\$26.00'),
-                          _buildFoodItem('assets/plate5.png', 'Berry bowl', '\$24.00')
-                        ]))),
+                        child: FutureBuilder(builder: (context, snapshot) {
+                            var data = json.decode(snapshot.data.toString());
+                            return ListView.builder(itemBuilder: (BuildContext context, int index) {
+                              return _buildFoodItem(data[index]['imgPath'], data[index]['name'], data[index]['price']);
+                            },
+                           itemCount: data.length,);
+                        },
+                        future: DefaultAssetBundle.of(context).loadString('assets/data.json'),)
+                        // child: ListView(children: [
+                        //   _buildFoodItem('assets/plate1.png', 'Salmon bowl', '\$24.00'),
+                        //   _buildFoodItem('assets/plate2.png', 'Spring bowl', '\$22.00'),
+                        //   _buildFoodItem('assets/plate6.png', 'Avocado bowl', '\$26.00'),
+                        //   _buildFoodItem('assets/plate5.png', 'Berry bowl', '\$24.00')
+                        // ])
+                        )),
                     Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
@@ -213,4 +227,6 @@ class _MyHomePageState extends State<MyHomePage> {
           )
         ));
   }
+
+
 }
