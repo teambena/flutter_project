@@ -99,17 +99,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: FutureBuilder(builder: (context, snapshot) {
                             var data = json.decode(snapshot.data.toString());
                             return ListView.builder(itemBuilder: (BuildContext context, int index) {
-                              return _buildFoodItem(data[index]['imgPath'], data[index]['name'], data[index]['price']);
+                              return _buildFoodItem(data[index]['id'], data[index]['imgPath'], data[index]['name'], data[index]['price']);
                             },
                            itemCount: data.length,);
                         },
                         future: DefaultAssetBundle.of(context).loadString('assets/data.json'),)
-                        // child: ListView(children: [
-                        //   _buildFoodItem('assets/plate1.png', 'Salmon bowl', '\$24.00'),
-                        //   _buildFoodItem('assets/plate2.png', 'Spring bowl', '\$22.00'),
-                        //   _buildFoodItem('assets/plate6.png', 'Avocado bowl', '\$26.00'),
-                        //   _buildFoodItem('assets/plate5.png', 'Berry bowl', '\$24.00')
-                        // ])
+                        
                         )),
                     Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -169,13 +164,13 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildFoodItem(String imgPath, String foodName, String price) {
+  Widget _buildFoodItem(int id, String imgPath, String foodName, String price) {
     return Padding(
         padding: EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: InkWell(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (context) => DetailsPage(heroTag: imgPath, foodName: foodName, foodPrice: price)
+              builder: (context) => DetailsPage(id: id, heroTag: imgPath, foodName: foodName, foodPrice: price)
             ));
           },
           child: Row(
