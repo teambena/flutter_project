@@ -1,17 +1,36 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'dart:async' show Future;
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart';
+
 
 class DetailsPage extends StatefulWidget {
+  final id;
   final heroTag;
   final foodName;
   final foodPrice;
 
-  DetailsPage({this.heroTag, this.foodName, this.foodPrice});
+  DetailsPage({this.id, this.heroTag, this.foodName, this.foodPrice});
 
   @override
   _DetailsPageState createState() => _DetailsPageState();
 }
 
 class _DetailsPageState extends State<DetailsPage> {
+  List data;
+
+Future<String> loadJsonData() async {
+    var jsonText = await rootBundle.loadString('assets/data.json');
+    setState(() => data = json.decode(jsonText));
+}
+
+@override
+void initState() {
+  super.initState();
+  this.loadJsonData();
+}
+
   var selectedCard = 'WEIGHT';
 
   @override
@@ -152,13 +171,13 @@ class _DetailsPageState extends State<DetailsPage> {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          _buildInfoCard('WEIGHT', '300', 'G'),
+                          _buildInfoCard('WEIGHT', data[widget.id]['weight'], 'G'),
                           SizedBox(width: 10.0),
-                            _buildInfoCard('CALORIES', '267', 'CAL'),
-                            SizedBox(width: 10.0),
-                            _buildInfoCard('VITAMINS', 'A, B6', 'VIT'),
-                            SizedBox(width: 10.0),
-                            _buildInfoCard('AVAIL', 'NO', 'AV')
+                          _buildInfoCard('CALORIES', data[widget.id]['calories'], 'CAL'),
+                          SizedBox(width: 10.0),
+                          _buildInfoCard('VITAMINS', data[widget.id]['vitamins'], 'VIT'),
+                          SizedBox(width: 10.0),
+                          _buildInfoCard('AVAIL', data[widget.id]['avail'], 'AV')
                         ],
                       )
                     ),
