@@ -283,8 +283,12 @@ class CustomSearchDelegate extends SearchDelegate {
           title: Text(searchTerm),
           onTap: () {
             query = searchTerm;
-
             showResults(context);
+
+            // Need fix
+            // Navigator.of(context).push(MaterialPageRoute(
+            //   builder: (context) => DetailsPage(id: id, heroTag: imgPath, foodName: foodName, foodPrice: price)
+            // ));
           },
         );
       },
