@@ -1,22 +1,44 @@
 [
     {
         "id": 0,
-        "name": "Test Salmon bowl",
+        "name": "Spicy Honey-Chipotle Salmon Bowl",
         "imgPath": "assets/plate1.png",
         "price": "24.00",
         "weight": "800",
-        "calories": "267",
-        "vitamins": "A",
-        "avail": "No"
+        "calories": "601.5",
+        "prep": "15",
+        "cook": "50",
+        "total": "1.05",
+        "servings": "2",
+        "ingredients": 
+            {
+                "1": "1) 2 cups low-sodium chicken broth",
+                "2": "2) teaspoon butter",
+                "3": "3) ½ cup brown rice, rinsed well",
+                "4": "4) 1½ cups chopped fresh green beans",
+                "5": "5) 1 medium sweet potato, chopped",
+                "6": "6) 1 tablespoon olive oil",
+                "7": "7) salt and ground black pepper to taste",
+                "8": "8) 1 tablespoon honey",
+                "9": "9) 1 teaspoon ground dried chipotle pepper",
+                "10": "10) ½ teaspoon granulated garlic",
+                "11": "11) 2 (4 ounce) frozen salmon fillets with skin",
+                "12": "12) 1 tablespoon chopped toasted pecans"
+            }
     },
     {
         "id": 1,
-        "name": "Test Spring bowl",
+        "name": "Spring Salad",
         "imgPath": "assets/plate2.png",
         "price": "22.00",
         "weight": "150",
-        "calories": "225",
-        "vitamins": "A, B6",
-        "avail": "No"
+        "calories": "540",
+        "prep": "10",
+        "cook": "15",
+        "total": "25 Mins",
+        "servings": "8",
+        "ingredients": {
+            "1": "1) 12 slices bacon \n\n2) 2 heads fresh broccoli, florets only \n\n3) 1 cup chopped celery \n\n4) ½ cup chopped green onions \n\n5) 1 cup seedless green grapes \n\n6) 1 cup seedless red grapes \n\n7) ½ cup raisins \n\n8) ½ cup blanched slivered almonds \n\n9) 1 cup mayonnaise \n\n10) 1 tablespoon white wine vinegar \n\n11) ¼ cup white sugar"
+        }
     }
 ]
