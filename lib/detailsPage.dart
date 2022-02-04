@@ -17,8 +17,8 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  bool _checkbox = false;
-  bool _checkboxListTile = false;
+  bool value1 = false;
+  bool value2 = false;
   List data;
 
   Future<String> loadJsonData() async {
@@ -130,35 +130,40 @@ class _DetailsPageState extends State<DetailsPage> {
                             fontSize: 22.0,
                             fontWeight: FontWeight.bold)),
                     SizedBox(height: 20.0),
-                    // _buildInfoCard('CALORIES', data[widget.id]['ingredients'], 'CAL'),
-                    // SizedBox(width: 10.0),
-                    // _buildInfoCard('PREP', data[widget.id]['ingredients'], 'Mins'),
-                    // SizedBox(width: 10.0),
-                    // _buildInfoCard('COOK', data[widget.id]['cook'], 'Mins'),
-                    // SizedBox(width: 10.0),
-                    // _buildInfoCard('TOTAL', data[widget.id]['total'], 'Hrs'),
-                    // SizedBox(width: 10.0),
-                    // _buildInfoCard('SERVINGS', data[widget.id]['servings'], ''),
-                    //============================
                     Container(
                         height: 150.0,
                         child: ListView(
                           scrollDirection: Axis.vertical,
                           children: <Widget>[
-                            
-                            // CheckboxListTile(
-                            //     controlAffinity:
-                            //         ListTileControlAffinity.leading,
-                            //     title: Text(data[widget.id]['ingredients']['1'],),
-                            //     value: _checkboxListTile,
-                            //     onChanged: (value) {
-                            //       setState(() {
-                            //         _checkboxListTile = !_checkboxListTile;
-                            //       });
-                            //     }),
-
-                            Text(
-                              data[widget.id]['ingredients']['1'],
+                            CheckboxListTile(
+                              title: Text(
+                                data[widget.id]['ingredients']['1'],
+                              ),
+                              value: this.value1,
+                              onChanged: (bool value1) {
+                                setState(() {
+                                  this.value1 = value1;
+                                });
+                              },
+                              controlAffinity: ListTileControlAffinity
+                                  .leading, //  <-- leading Checkbox
+                            ),
+                            //IconButton
+                            // Text(
+                            //   data[widget.id]['ingredients']['1'],
+                            // ),
+                            CheckboxListTile(
+                              title: Text(
+                                data[widget.id]['ingredients']['2'],
+                              ),
+                              value: this.value2,
+                              onChanged: (bool value2) {
+                                setState(() {
+                                  this.value2 = value2;
+                                });
+                              },
+                              controlAffinity: ListTileControlAffinity
+                                  .leading, //  <-- leading Checkbox
                             ),
                             // Text(
                             //   data[widget.id]['ingredients']['2'],
@@ -166,22 +171,9 @@ class _DetailsPageState extends State<DetailsPage> {
                             SizedBox(width: 10.0),
                           ],
                         )),
-                    //===========================
-                    // Column(
-                    //   children: <Widget>[
-                    //     Text(
-                    //       data[widget.id]['ingredients']['1'],
-                    //     ),
-                    //     Text(
-                    //       data[widget.id]['ingredients']['2'],
-                    //     )
-                    //     // SizedBox(width: 10.0),
-                    //   ],
-                    // ),
-                    //============================
                     SizedBox(height: 40.0),
 
-                    //--------------Step------------------
+                    //--------------Video------------------
                     Text('Video',
                         style: TextStyle(
                             fontFamily: 'Montserrat',
