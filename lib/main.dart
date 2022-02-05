@@ -31,7 +31,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF21BFBD),
-        title: Text('Food Menu',
+        title: Text('EHE COOKING',
             style: TextStyle(
                 fontFamily: 'Montserrat',
                 color: Colors.white,
@@ -96,20 +96,20 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: EdgeInsets.only(left: 40.0),
             child: Row(
-              // children: <Widget>[
-              //   Text('Food',
-              //       style: TextStyle(
-              //           fontFamily: 'Montserrat',
-              //           color: Colors.white,
-              //           fontWeight: FontWeight.bold,
-              //           fontSize: 25.0)),
-              //   SizedBox(width: 10.0),
-              //   Text('Menu',
-              //       style: TextStyle(
-              //           fontFamily: 'Montserrat',
-              //           color: Colors.white,
-              //           fontSize: 25.0))
-              // ],
+              children: <Widget>[
+                Text('Food',
+                    style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 25.0)),
+                SizedBox(width: 10.0),
+                Text('Menu',
+                    style: TextStyle(
+                        fontFamily: 'Montserrat',
+                        color: Colors.white,
+                        fontSize: 25.0))
+              ],
             ),
           ),
           SizedBox(height: 40.0),
