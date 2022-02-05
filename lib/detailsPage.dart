@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:async' show Future;
 import 'package:flutter/services.dart' show rootBundle;
 import 'package:flutter/services.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 
 class DetailsPage extends StatefulWidget {
@@ -10,8 +11,9 @@ class DetailsPage extends StatefulWidget {
   final heroTag;
   final foodName;
   final foodPrice;
+  final videoId;
 
-  DetailsPage({this.id, this.heroTag, this.foodName, this.foodPrice});
+  DetailsPage({this.id, this.heroTag, this.foodName, this.foodPrice, this.videoId});
 
   @override
   _DetailsPageState createState() => _DetailsPageState();
@@ -35,6 +37,12 @@ void initState() {
 
   @override
   Widget build(BuildContext context) {
+    YoutubePlayerController _controller = YoutubePlayerController (
+    initialVideoId:  data[widget.id]['videoId'],
+    flags: YoutubePlayerFlags(
+      autoPlay: true,
+      mute: true,
+    ));
     return Scaffold(
         backgroundColor: Color(0xFF7A9BEE),
         appBar: AppBar(
@@ -180,7 +188,12 @@ void initState() {
                           _buildInfoCard('AVAIL', data[widget.id]['avail'], 'AV')
                         ],
                       )
-                    ),
+                    ),SizedBox(height: 40.0),
+                    YoutubePlayer(
+                      controller: _controller,
+                      showVideoProgressIndicator: true,
+                      progressIndicatorColor: Colors.blueAccent,
+                      ),
                     SizedBox(height: 20.0),
                       Padding(
                         padding: EdgeInsets.only(bottom:5.0),

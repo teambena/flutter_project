@@ -118,7 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                     data[index]['id'],
                                     data[index]['imgPath'],
                                     data[index]['name'],
-                                    data[index]['price']);
+                                    data[index]['price'],
+                                    data[index]['videoId']);
                               },
                               itemCount: data.length,
                             );
@@ -139,7 +140,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Widget _buildFoodItem(int id, String imgPath, String foodName, String price) {
+  Widget _buildFoodItem(int id, String imgPath, String foodName, String price, String videoId) {
     final alreadySaved = _saved.contains(foodName);
 
     return Padding(
@@ -151,7 +152,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     id: id,
                     heroTag: imgPath,
                     foodName: foodName,
-                    foodPrice: price)));
+                    foodPrice: price,
+                    videoId: videoId)));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
