@@ -52,16 +52,6 @@ class _MyHomePageState extends State<MyHomePage> {
               _pushSaved();
             },
           ),
-          IconButton(
-            color: Colors.amber[800],
-            onPressed: () {
-              showSearch(
-                context: context,
-                //delegate: CustomSearchDelegate(),
-              );
-            },
-            icon: const Icon(Icons.search),
-          ),
         ],
       ),
       backgroundColor: Color(0xFFFFFFFF),
@@ -211,73 +201,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
       return Scaffold(
           appBar: AppBar(
-           backgroundColor: Color(0xFF21BFBD), title: Text('Favorite Menu')),
+           backgroundColor: Colors.amber[800], title: Text('Favorite Menu')),
           body: ListView(children: divided));
     }));
   }
 
   
 }
-
-//search function
-class CustomSearchDelegate extends SearchDelegate {
-  
-  @override
-  List<Widget> buildActions(BuildContext context) {
-    return [
-      IconButton(
-        icon: const Icon(Icons.clear),
-        onPressed: () {
-          if (query.isEmpty) {
-            close(context, null); //close searchbar
-          } else {
-            query = '';
-          }
-        },
-      ),
-    ];
-  }
-
-  @override
-  Widget buildLeading(BuildContext context) {
-    return IconButton(
-      icon: const Icon(Icons.arrow_back),
-      onPressed: () {
-        close(context, null); //close searchbar
-      },
-    );
-  }
-
-  @override
-  Widget buildResults(BuildContext context) => Center(
-    child: Text(
-      'You selected : '+query
-    ),
-  );
-    
-  
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-  List<String> searchTerms = [
-    'Salmon bowl',
-    'Spring bowl',
-    ];
-    return ListView.builder(
-      itemCount: searchTerms.length,
-      itemBuilder: (context, index) {
-        final searchTerm = searchTerms[index];
-
-        return ListTile(
-          title: Text(searchTerm),
-          onTap: () {
-            query = searchTerm;
-
-            showResults(context);
-          },
-        );
-      },
-    );
-  }
-}
-
