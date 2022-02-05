@@ -48,7 +48,6 @@ flutter:
     - assets/plate3.png
     - assets/plate4.png
     - assets/plate5.png
-    - assets/plate6.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
