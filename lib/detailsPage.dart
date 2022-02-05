@@ -17,8 +17,6 @@ class DetailsPage extends StatefulWidget {
 }
 
 class _DetailsPageState extends State<DetailsPage> {
-  bool value1 = false;
-  bool value2 = false;
   List data;
 
   Future<String> loadJsonData() async {
@@ -37,7 +35,7 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFF7A9BEE),
+        backgroundColor: Color(0xFF474973),
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
@@ -135,39 +133,89 @@ class _DetailsPageState extends State<DetailsPage> {
                         child: ListView(
                           scrollDirection: Axis.vertical,
                           children: <Widget>[
-                            CheckboxListTile(
-                              title: Text(
-                                data[widget.id]['ingredients']['1'],
-                              ),
-                              value: this.value1,
-                              onChanged: (bool value1) {
-                                setState(() {
-                                  this.value1 = value1;
-                                });
-                              },
-                              controlAffinity: ListTileControlAffinity
-                                  .leading, //  <-- leading Checkbox
-                            ),
-                            //IconButton
-                            // Text(
-                            //   data[widget.id]['ingredients']['1'],
+                            // CheckboxListTile(
+                            //   title: Text(
+                            //     data[widget.id]['ingredients']['1'],
+                            //   ),
+                            //   value: this.value1,
+                            //   onChanged: (bool value1) {
+                            //     setState(() {
+                            //       this.value1 = value1;
+                            //     });
+                            //   },
+                            //   controlAffinity: ListTileControlAffinity
+                            //       .leading, //  <-- leading Checkbox
                             // ),
-                            CheckboxListTile(
-                              title: Text(
-                                data[widget.id]['ingredients']['2'],
-                              ),
-                              value: this.value2,
-                              onChanged: (bool value2) {
-                                setState(() {
-                                  this.value2 = value2;
-                                });
-                              },
-                              controlAffinity: ListTileControlAffinity
-                                  .leading, //  <-- leading Checkbox
+                            // IconButton
+                            Text(
+                              data[widget.id]['ingredients']['1'],
                             ),
-                            // Text(
-                            //   data[widget.id]['ingredients']['2'],
+                            Text(""),
+                            // SizedBox(width: 40.0),
+                            // CheckboxListTile(
+                            //   title: Text(
+                            //     data[widget.id]['ingredients']['2'],
+                            //   ),
+                            //   value: this.value2,
+                            //   onChanged: (bool value2) {
+                            //     setState(() {
+                            //       this.value2 = value2;
+                            //     });
+                            //   },
+                            //   controlAffinity: ListTileControlAffinity
+                            //       .leading, //  <-- leading Checkbox
                             // ),
+                            Text(
+                              data[widget.id]['ingredients']['2'],
+                            ),
+                            Text(""),
+
+                            Text(
+                              data[widget.id]['ingredients']['3'],
+                            ),
+                            Text(""),
+
+                            Text(
+                              data[widget.id]['ingredients']['4'],
+                            ),
+                            Text(""),
+
+                            Text(
+                              data[widget.id]['ingredients']['5'],
+                            ),
+                            Text(""),
+                            Text(
+                              data[widget.id]['ingredients']['6'],
+                            ),
+                            Text(""),
+                            Text(
+                              data[widget.id]['ingredients']['7'],
+                            ),
+                            Text(""),
+                            Text(
+                              data[widget.id]['ingredients']['8'],
+                            ),
+                            Text(""),
+                            Text(
+                              data[widget.id]['ingredients']['9'],
+                            ),
+                            Text(""),
+                            Text(
+                              data[widget.id]['ingredients']['10'],
+                            ),
+                            Text(""),
+                            Text(
+                              data[widget.id]['ingredients']['11'],
+                            ),
+                            Text(""),
+                            Text(
+                              data[widget.id]['ingredients']['12'],
+                            ),
+                            Text(""),
+                            Text(
+                              data[widget.id]['ingredients']['13'],
+                            ),
+                            Text(""),
                             SizedBox(width: 10.0),
                           ],
                         )),
